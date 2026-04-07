@@ -6,222 +6,8 @@
   <title>MakeShift 2026: Accountable Tech by Design</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <style>
-    @font-face {
-      font-family: 'JetBrains Mono';
-      src: url('Fonts/JetBrainsMono-ExtraBold.ttf') format('truetype');
-      font-weight: 800;
-    }
-    @font-face {
-      font-family: 'Source Sans';
-      src: url('Fonts/SourceSansVariable-Roman.otf') format('opentype');
-      font-weight: 100 900;
-    }
+  <link rel="stylesheet" type="text/css" href="style.css">
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --navy:       #0d1c75;
-      --gov-blue:   #1952a8;
-      --royal-blue: #3b85d4;
-      --pale-blue:  #c2ddf5;
-      --lime:       #c6e93d;
-      --ink:        #111111;
-      --grid:       rgba(65, 105, 225, 0.11);
-    }
-
-    body {
-      font-family: 'Source Sans', 'Helvetica Neue', Arial, sans-serif;
-      font-weight: 400;
-      background-color: #ffffff;
-      background-image:
-        linear-gradient(var(--grid) 1px, transparent 1px),
-        linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-      background-size: 28px 28px;
-      color: var(--ink);
-      min-height: 100vh;
-    }
-
-    /* ── NAV ─────────────────────────────────── */
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1.1rem 2rem;
-      border-bottom: 1px solid rgba(0,0,0,0.08);
-      background: rgba(255,255,255,0.88);
-      backdrop-filter: blur(6px);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .nav-brand {
-      font-family: 'JetBrains Mono', 'Courier New', monospace;
-      font-weight: 800;
-      font-size: 0.88rem;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-    }
-
-    .btn-register {
-      display: inline-block;
-      background: var(--lime);
-      color: var(--ink);
-      font-family: 'JetBrains Mono', 'Courier New', monospace;
-      font-weight: 800;
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 0.5rem 1.2rem;
-      border-radius: 2px;
-      transition: opacity 0.15s;
-    }
-    .btn-register:hover { opacity: 0.8; }
-
-    /* ── PAGE ────────────────────────────────── */
-    .page {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 3rem 2rem 4.5rem;
-    }
-
-    /* ── DATE ────────────────────────────────── */
-    .date {
-      text-align: right;
-      font-family: 'Source Sans', sans-serif;
-      font-weight: 900;
-      font-size: clamp(1.3rem, 2.8vw, 1.85rem);
-      letter-spacing: 0.04em;
-      margin-bottom: 1.25rem;
-    }
-
-    /* ── HERO BADGE ──────────────────────────── */
-    .hero {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 3.5rem;
-    }
-
-    .badge-wrap {
-      width: 100%;
-      max-width: 560px;
-    }
-    .badge-wrap img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    /* ── INFO GRID ───────────────────────────── */
-    .info {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      margin-bottom: 2.5rem;
-      align-items: start;
-    }
-
-    .venue-row { display: flex; gap: 0.65rem; align-items: flex-start; }
-    .pin { flex-shrink: 0; margin-top: 3px; }
-    .venue-name { font-weight: 900; font-size: 1rem; line-height: 1.3; }
-    .venue-addr { color: #444; font-size: 0.96rem; line-height: 1.6; margin-top: 0.1rem; }
-
-    .reg-item { font-size: 0.96rem; line-height: 1.7; }
-    .reg-item strong { font-weight: 900; }
-    a {
-      display: inline-block;
-      background: var(--lime);
-      color: var(--navy);
-      font-family: 'JetBrains Mono', 'Courier New', monospace;
-      font-weight: 800;
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 0.3rem 0.75rem;
-      border-radius: 2px;
-      transition: opacity 0.15s;
-    }
-    a:hover { opacity: 0.8; }
-
-    /* ── THEME BLOCKS ────────────────────────── */
-    .theme-block {
-      padding: 5rem 2rem;
-      background-attachment: fixed; /* subtle parallax feel */
-    }
-    .theme-inner {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .theme-label {
-      font-family: 'JetBrains Mono', 'Courier New', monospace;
-      font-weight: 800;
-      font-size: 0.78rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      margin-bottom: 1.25rem;
-      opacity: 0.7;
-    }
-    .theme-title {
-      font-family: 'Source Sans', sans-serif;
-      font-weight: 900;
-      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
-      line-height: 1.15;
-      margin-bottom: 2rem;
-    }
-    .theme-cols {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
-    }
-    .theme-cols p {
-      font-size: 1rem;
-      line-height: 1.75;
-      opacity: 0.88;
-    }
-
-    /* Block colours */
-    .theme-gov   { background: #1952a8; color: #ffffff; }
-    .theme-royal { background: #3b85d4; color: #ffffff; }
-    .theme-pale  { background: #c2ddf5; color: #0d1c75; }
-
-    /* Lime accent stripe above each block */
-    .theme-block + .theme-block { border-top: 3px solid rgba(198,233,61,0.35); }
-    .theme-gov { border-top: 3px solid var(--lime); }
-
-    /* ── DIVIDER ─────────────────────────────── */
-    hr { border: none; border-top: 1.5px solid #e0e0e0; margin-bottom: 2rem; }
-
-    /* ── LOGOS ───────────────────────────────── */
-    .logos {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-    }
-    .logos img { height: 34px; width: auto; object-fit: contain; }
-    .ixd-logo {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-family: 'JetBrains Mono', monospace;
-      font-weight: 800;
-      font-size: 1.15rem;
-      letter-spacing: 0.04em;
-    }
-
-    /* ── RESPONSIVE ──────────────────────────── */
-    @media (max-width: 580px) {
-      nav { padding: 1rem 1.25rem; }
-      .page { padding: 2rem 1.25rem 3rem; }
-      .info { grid-template-columns: 1fr; gap: 1.75rem; }
-      .theme-block { padding: 3.5rem 1.25rem; }
-      .theme-cols { grid-template-columns: 1fr; gap: 1.25rem; }
-    }
-  </style>
 </head>
 <body>
 
@@ -248,33 +34,47 @@
 
   <section class="theme-block theme-gov">
     <div class="theme-inner">
-      <p class="theme-label">Track 01</p>
-      <h2 class="theme-title">Governance</h2>
-      <div class="theme-cols">
-        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet consectetur adipisci velit, sed quia non numquam eius modi tempora incidunt.</p>
-        <p>Ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.</p>
+      <p class="theme-label"></p>
+      <h2 class="theme-title">MakeShift: Accountable Tech By Design</h2>
+      <div >
+        <p>Join us in supporting MakeShift 2026, the inaugural convening for designers, technologists, researchers, and advocates. This collective work means reimagining how digital systems are designed, governed, and made legible in their communities.
+
+
+        </p>
+          <p>On <strong>May 20-21,</strong> we will host community-led talks and workshops to showcase the relationship between design, technology, and power. One of our core projects will involve evolving a community-driven open source communication standard for AI, Digital Trust for Places and Routines (DTPR). MakeShift 2026 attendees will include experts (including the NYC design community) working to explore accountable design in practice, interrogate algorithmic systems, build community-based alternatives, and more. </p>
+
+
       </div>
     </div>
   </section>
 
   <section class="theme-block theme-royal">
     <div class="theme-inner">
-      <p class="theme-label">Track 02</p>
-      <h2 class="theme-title">Community + Power</h2>
+      <p class="theme-label"></p>
+      <h2 class="theme-title">Exploratory Themes</h2>
       <div class="theme-cols">
-        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga.</p>
-        <p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus temporibusque autem quibusdam officiis debitis rerum necessitatibus.</p>
+        <p><strong>Digital Trust as Public Infrastructure: </strong> How can we embed trust into the way that systems and institutions make use of technology? Examples could include community engagement strategies, ways to make data usage more transparent, or policy efforts to center trust in public decision making. </p>
+
+        <p><strong>Accountability as a Design Practice:</strong> How can we use design to shift power away from big tech companies and reclaim agency? Examples of topics include reparative design, practices of accountability, or discussions of community ownership or oversight of emerging technologies.</p>
+
+        <p><strong>Power And Participation:</strong> Who gets to participate in how emerging technologies get deployed, and how can we as a community make that participation as inclusive as possible. Examples could include participatory design workshops, explorations of open-source tools and communities, or discussions of digital sovereignty and community agency.</p>
       </div>
     </div>
   </section>
 
   <section class="theme-block theme-pale">
     <div class="theme-inner">
-      <p class="theme-label">Track 03</p>
-      <h2 class="theme-title">Infrastructure</h2>
+      <p class="theme-label"></p>
+      <h2 class="theme-title">How to Get Involved</h2>
       <div class="theme-cols">
-        <p>Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint molestiae non recusandae.</p>
-        <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit ratione sequi nesciunt et quasi architecto.</p>
+        <p><strong>Track 1 - Propose a Session</strong>
+
+We welcome proposals for talks, workshops, roundtables, design sprints, or community gatherings that explore questions around AI accountability, civic technology, digital governance, public infrastructure, and participatory design. Sessions may run up to 90 minutes and should contribute new ideas, practices, or frameworks for designing accountable technology.</p>
+        <p><strong>Track 2 - Respond to the Design Challenge</strong>
+
+Participants may also submit creative projects responding to the Digital Trust for Places & Routines (DTPR) standard—an open-source framework designed to make technologies operating in shared spaces more transparent and understandable.
+
+Projects might include prototypes, research, signage systems, speculative design, installations, or other creative work exploring how design can make digital infrastructure more visible and accountable. Selected projects will be exhibited during NYC Design Week at the School of Visual Arts and featured as part of the conference program.</p>
       </div>
     </div>
   </section>
